@@ -3,13 +3,13 @@
 -- Original author: Maxence Weynans <neutaaaaan@gmail.com>
 
 -- vim.cmd("source $VIMRUNTIME/colors/vim.lua")
-vim.g.colors_name = "quiet2.nvim"
+vim.g.colors_name = "quiet2"
 
 local palette = {
 	dark = {
-		bg = "#000000",
+		bg = "#1c1c1c",
 		fg = "#dadada",
-		color_column = "#1c1c1c",
+		color_column = "#262626",
 		cursor_line = "#303030",
 		line_nr = "#585858",
 		grey = "#6c6c6c",
@@ -148,9 +148,9 @@ local function apply_dark()
 
 	-- Mini Files
 	hi("MiniFilesBorder", { fg = c.grey, bg = c.bg, ctermfg = 242, ctermbg = 16 })
-	hi("MiniFilesBorderModified", { fg = c.err, bg = c.bg, ctermfg = 197, ctermbg = 16 })
+	hi("MiniFilesBorderModified", { fg = c.fg, bg = c.bg, ctermfg = 253, ctermbg = 16 })
 	hi("MiniFilesCursorLine", { bg = c.cursor_line, ctermbg = 236 })
-	hi("MiniFilesDirectory", { fg = c.spell_cap, ctermfg = 32 })
+	hi("MiniFilesDirectory", { fg = c.fg, ctermfg = 253 })
 	hi("MiniFilesFile", { fg = c.fg, ctermfg = 253 })
 	hi("MiniFilesNormal", { fg = c.fg, bg = c.bg, ctermfg = 253, ctermbg = 16 })
 	hi("MiniFilesTitle", { fg = c.grey, bg = c.bg, ctermfg = 242, ctermbg = 16 })
@@ -160,8 +160,8 @@ local function apply_dark()
 	)
 
 	-- Mini Icons
-	hi("MiniIconsAzure", { fg = c.spell_cap, ctermfg = 32 })
-	hi("MiniIconsBlue", { fg = c.spell_cap, ctermfg = 32 })
+	hi("MiniIconsAzure", { fg = c.fg, ctermfg = 253 })
+	hi("MiniIconsBlue", { fg = c.fg, ctermfg = 253 })
 
 	hi("Normal", { fg = c.fg, bg = c.bg, ctermfg = 253, ctermbg = 16 })
 	hi("ColorColumn", { bg = c.color_column, ctermbg = 234 })
@@ -207,7 +207,7 @@ local function apply_dark()
 	hi("ErrorMsg", { fg = c.fg, bg = c.bg, ctermfg = 253, ctermbg = 16, reverse = true, cterm = { reverse = true } })
 	hi("FoldColumn", { fg = c.grey, ctermfg = 242 })
 	hi("Folded", { fg = c.grey, bg = c.bg, ctermfg = 242, ctermbg = 16 })
-	hi("Function", { fg = c.spell_rare, ctermfg = 37 })
+	hi("Function", { fg = c.fg, ctermfg = 253 })
 	hi("Identifier", { fg = c.fg, ctermfg = 253 })
 	hi("Ignore", { fg = c.fg, ctermfg = 253 })
 	hi(
@@ -289,9 +289,9 @@ local function apply_light()
 
 	-- Mini Files
 	hi("MiniFilesBorder", { fg = c.grey, bg = c.bg, ctermfg = 241, ctermbg = 188 })
-	hi("MiniFilesBorderModified", { fg = c.spell_bad, bg = c.bg, ctermfg = 124, ctermbg = 188 })
+	hi("MiniFilesBorderModified", { fg = c.fg, bg = c.bg, ctermfg = 16, ctermbg = 188 })
 	hi("MiniFilesCursorLine", { bg = c.cursor_line, ctermbg = 255 })
-	hi("MiniFilesDirectory", { fg = c.spell_cap, ctermfg = 25 })
+	hi("MiniFilesDirectory", { fg = c.fg, ctermfg = 16 })
 	hi("MiniFilesFile", { fg = c.fg, ctermfg = 16 })
 	hi("MiniFilesNormal", { fg = c.fg, bg = c.bg, ctermfg = 16, ctermbg = 188 })
 	hi("MiniFilesTitle", { fg = c.grey, bg = c.bg, ctermfg = 241, ctermbg = 188 })
@@ -301,8 +301,8 @@ local function apply_light()
 	)
 
 	-- Mini Icons
-	hi("MiniIconsAzure", { fg = c.spell_cap, ctermfg = 25 })
-	hi("MiniIconsBlue", { fg = c.spell_cap, ctermfg = 25 })
+	hi("MiniIconsAzure", { fg = c.fg, ctermfg = 16 })
+	hi("MiniIconsBlue", { fg = c.fg, ctermfg = 16 })
 
 	hi("Normal", { fg = c.fg, bg = c.bg, ctermfg = 16, ctermbg = 188 })
 	hi("ColorColumn", { bg = c.color_column, ctermbg = 254 })
@@ -334,7 +334,7 @@ local function apply_light()
 		"DiffText",
 		{ fg = c.diff_text, bg = "#000000", ctermfg = 176, ctermbg = 16, reverse = true, cterm = { reverse = true } }
 	)
-	hi("Directory", { fg = c.spell_cap, ctermfg = 25 })
+	hi("Directory", { fg = c.fg, ctermfg = 16 })
 	hi("EndOfBuffer", { fg = c.grey, ctermfg = 241 })
 	hi("Error", {
 		fg = c.err,
@@ -348,7 +348,7 @@ local function apply_light()
 	hi("ErrorMsg", { fg = c.fg, bg = c.bg, ctermfg = 16, ctermbg = 188, reverse = true, cterm = { reverse = true } })
 	hi("FoldColumn", { fg = c.grey, ctermfg = 241 })
 	hi("Folded", { fg = c.grey, bg = c.bg, ctermfg = 241, ctermbg = 188 })
-	hi("Function", { fg = c.spell_rare, ctermfg = 30 })
+	hi("Function", { fg = c.fg, ctermfg = 16 })
 	hi("Identifier", { fg = c.fg, ctermfg = 16 })
 	hi("Ignore", { fg = c.fg, ctermfg = 16 })
 	hi(
