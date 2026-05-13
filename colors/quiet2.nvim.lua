@@ -2,8 +2,8 @@
 -- Source: https://github.com/neovim/neovim/blob/master/runtime/colors/quiet.vim
 -- Original author: Maxence Weynans <neutaaaaan@gmail.com>
 
-vim.cmd("source $VIMRUNTIME/colors/vim.lua")
-vim.g.colors_name = "quiet-nvim"
+-- vim.cmd("source $VIMRUNTIME/colors/vim.lua")
+vim.g.colors_name = "quiet2.nvim"
 
 local palette = {
 	dark = {
@@ -12,10 +12,10 @@ local palette = {
 		color_column = "#1c1c1c",
 		cursor_line = "#303030",
 		line_nr = "#585858",
-		grey = "#707070",
+		grey = "#6c6c6c",
 		pmenu_bg = "#a8a8a8",
-		title_bar = "#4c4c4c",
-		title_bar_nc = "#3c3c3c",
+		title_bar = "#3a3a3a",
+		title_bar_nc = "#303030",
 		cur_search = "#ff5fff",
 		match_paren = "#ff00af",
 		inc_search = "#ffaf00",
@@ -41,7 +41,7 @@ local palette = {
 			"#d787d7",
 			"#00afaf",
 			"#dadada",
-			"#707070",
+			"#6c6c6c",
 			"#ff005f",
 			"#00d75f",
 			"#ffaf00",
@@ -60,8 +60,8 @@ local palette = {
 		grey = "#626262",
 		pmenu_bg = "#a8a8a8",
 		status_line_fg = "#eeeeee",
-		title_bar = "#ececec",
-		title_bar_nc = "#e7e7e7",
+		title_bar = "#eeeeee",
+		title_bar_nc = "#eeeeee",
 		cur_search = "#ff5fff",
 		match_paren = "#ff00af",
 		inc_search = "#ffaf00",
@@ -115,7 +115,6 @@ local function apply_links()
 	hi("Delimiter", { link = "Special" })
 	hi("Exception", { link = "Statement" })
 	hi("Float", { link = "Constant" })
-	hi("Function", { link = "Identifier" })
 	hi("Include", { link = "PreProc" })
 	hi("Keyword", { link = "Statement" })
 	hi("Label", { link = "Statement" })
@@ -132,7 +131,7 @@ local function apply_links()
 	hi("StatusLineTerm", { link = "StatusLine" })
 	hi("StatusLineTermNC", { link = "StatusLineNC" })
 	hi("StorageClass", { link = "Type" })
-	hi("String", { link = "Constant" })
+	-- hi("String", { link = "Constant" })
 	hi("Structure", { link = "Type" })
 	hi("Tag", { link = "Special" })
 	hi("Terminal", { link = "Normal" })
@@ -144,6 +143,26 @@ end
 
 local function apply_dark()
 	local c = palette.dark
+
+	hi("String", { fg = c.terminal[11], ctermfg = 34 })
+
+	-- Mini Files
+	hi("MiniFilesBorder", { fg = c.grey, bg = c.bg, ctermfg = 242, ctermbg = 16 })
+	hi("MiniFilesBorderModified", { fg = c.err, bg = c.bg, ctermfg = 197, ctermbg = 16 })
+	hi("MiniFilesCursorLine", { bg = c.cursor_line, ctermbg = 236 })
+	hi("MiniFilesDirectory", { fg = c.spell_cap, ctermfg = 32 })
+	hi("MiniFilesFile", { fg = c.fg, ctermfg = 253 })
+	hi("MiniFilesNormal", { fg = c.fg, bg = c.bg, ctermfg = 253, ctermbg = 16 })
+	hi("MiniFilesTitle", { fg = c.grey, bg = c.bg, ctermfg = 242, ctermbg = 16 })
+	hi(
+		"MiniFilesTitleFocused",
+		{ fg = c.fg, bg = c.bg, ctermfg = 253, ctermbg = 16, bold = true, cterm = { bold = true } }
+	)
+
+	-- Mini Icons
+	hi("MiniIconsAzure", { fg = c.spell_cap, ctermfg = 32 })
+	hi("MiniIconsBlue", { fg = c.spell_cap, ctermfg = 32 })
+
 	hi("Normal", { fg = c.fg, bg = c.bg, ctermfg = 253, ctermbg = 16 })
 	hi("ColorColumn", { bg = c.color_column, ctermbg = 234 })
 	hi("Comment", { fg = c.grey, ctermfg = 242, bold = true, cterm = { bold = true } })
@@ -188,6 +207,7 @@ local function apply_dark()
 	hi("ErrorMsg", { fg = c.fg, bg = c.bg, ctermfg = 253, ctermbg = 16, reverse = true, cterm = { reverse = true } })
 	hi("FoldColumn", { fg = c.grey, ctermfg = 242 })
 	hi("Folded", { fg = c.grey, bg = c.bg, ctermfg = 242, ctermbg = 16 })
+	hi("Function", { fg = c.spell_rare, ctermfg = 37 })
 	hi("Identifier", { fg = c.fg, ctermfg = 253 })
 	hi("Ignore", { fg = c.fg, ctermfg = 253 })
 	hi(
@@ -264,6 +284,26 @@ end
 
 local function apply_light()
 	local c = palette.light
+
+	hi("String", { fg = c.terminal[3], ctermfg = 34 })
+
+	-- Mini Files
+	hi("MiniFilesBorder", { fg = c.grey, bg = c.bg, ctermfg = 241, ctermbg = 188 })
+	hi("MiniFilesBorderModified", { fg = c.spell_bad, bg = c.bg, ctermfg = 124, ctermbg = 188 })
+	hi("MiniFilesCursorLine", { bg = c.cursor_line, ctermbg = 255 })
+	hi("MiniFilesDirectory", { fg = c.spell_cap, ctermfg = 25 })
+	hi("MiniFilesFile", { fg = c.fg, ctermfg = 16 })
+	hi("MiniFilesNormal", { fg = c.fg, bg = c.bg, ctermfg = 16, ctermbg = 188 })
+	hi("MiniFilesTitle", { fg = c.grey, bg = c.bg, ctermfg = 241, ctermbg = 188 })
+	hi(
+		"MiniFilesTitleFocused",
+		{ fg = c.fg, bg = c.bg, ctermfg = 16, ctermbg = 188, bold = true, cterm = { bold = true } }
+	)
+
+	-- Mini Icons
+	hi("MiniIconsAzure", { fg = c.spell_cap, ctermfg = 25 })
+	hi("MiniIconsBlue", { fg = c.spell_cap, ctermfg = 25 })
+
 	hi("Normal", { fg = c.fg, bg = c.bg, ctermfg = 16, ctermbg = 188 })
 	hi("ColorColumn", { bg = c.color_column, ctermbg = 254 })
 	hi("Comment", { fg = c.fg, ctermfg = 16, bold = true, cterm = { bold = true } })
@@ -294,7 +334,7 @@ local function apply_light()
 		"DiffText",
 		{ fg = c.diff_text, bg = "#000000", ctermfg = 176, ctermbg = 16, reverse = true, cterm = { reverse = true } }
 	)
-	hi("Directory", { fg = c.fg, ctermfg = 16 })
+	hi("Directory", { fg = c.spell_cap, ctermfg = 25 })
 	hi("EndOfBuffer", { fg = c.grey, ctermfg = 241 })
 	hi("Error", {
 		fg = c.err,
@@ -308,6 +348,7 @@ local function apply_light()
 	hi("ErrorMsg", { fg = c.fg, bg = c.bg, ctermfg = 16, ctermbg = 188, reverse = true, cterm = { reverse = true } })
 	hi("FoldColumn", { fg = c.grey, ctermfg = 241 })
 	hi("Folded", { fg = c.grey, bg = c.bg, ctermfg = 241, ctermbg = 188 })
+	hi("Function", { fg = c.spell_rare, ctermfg = 30 })
 	hi("Identifier", { fg = c.fg, ctermfg = 16 })
 	hi("Ignore", { fg = c.fg, ctermfg = 16 })
 	hi(
